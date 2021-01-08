@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 200px;
+            height: 200px;
+            background: #0ff;
+        }
+    </style>
+</head>
+<body>
+    <div id="ad"></div>
+    <script>
+        //获取·元素
+        let ad = document.getElementById('ad')
+        //事件
+        ad.addEventListener('click',function(){
+            // this 为静态的 会指向在声明时所在作用域下this 的值
+            setTimeout(function(){
+            
+                this.style.background = "pink";
+            },1000)
+        })
+        
+        //返回 数组中偶数的元素
+        const arr = [1,6,4,23,100]
+        
+        const result = arr.filter(item => item % 2 === 0)
+
+        console.log(result);
+        //箭头函数适合 与this 无关的回调 定时器 数组的方法回调
+        //不适合  与this 有关的回调 事件回调 ；
+        // 因为 this 不会指向当前作用域的元素 而是指向作用域外的元素
+
+    </script>
+</body>
+</html>

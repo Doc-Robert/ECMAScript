@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div></div>
+    <div></div>
+    <div></div>
+    <script>
+        // 扩展运算符 ... 能将 数组 转换为逗号分隔的 参数序列
+        //数组 
+        // const ccc = ['bb','moon','canser']
+
+        // function MoonCanser(){
+        //     console.log(arguments);
+        // }
+        // MoonCanser(...ccc);
+
+        const upthree = ['saber','lanser','archer']
+        const downthree = ['assxin','rider','caster']
+        const fate = [...upthree,...downthree]
+        //相当于 ['saber','lanser','archer'  , 'assxin','rider','caster']
+        console.log(fate);
+
+        //2.数组的克隆
+        const special = ['ruler','avenger','mooncanser']
+
+        const clone = [...special]
+        console.log(clone);
+
+        // 3.将伪数组转换为真正的数组
+        const divs = document.querySelectorAll('div');
+        const divArr = [...divs]
+        console.log(divArr);
+    </script>
+</body>
+</html>

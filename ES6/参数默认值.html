@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //es6允许给函数参数赋值初始值
+        //1. 形参初始值 具有默认值参数 ，一般位置要靠后 
+
+        function add(a,b,c){
+            return a + b + c;
+        }
+        let result = add(1,2,3);
+        console.log(result);
+
+        // 2.与解构赋值结合
+        function connect({host,userName,password,port}){
+            console.log(host);
+            console.log(userName);
+            console.log(password);
+            console.log(port);
+        }
+        connect({
+            host :'localhost',
+            userName: 'root',
+            password: 'root',
+            port: 3306
+        })
+    </script>
+</body>
+</html>

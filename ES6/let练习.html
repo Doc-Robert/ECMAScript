@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>let</title>
+    <style>
+        .item{
+            width: 100px;
+            height: 50px;
+            border: 1px solid pink;
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2 class="page-header">touch to change sytle</h2>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+    </div>
+    <script>
+        //获取元素
+      let items = document.getElementsByClassName("item")
+
+      for(let i = 0; i<items.length;i++){
+          //切换元素style
+          items[i].onclick = function(){
+              items[i].style.background = 'pink'
+          }
+      }
+
+      //使用var 声明变量 会使循环完成
+      // i=3 当点击div 时i=3 带入 div元素长度最大为2 使其越界 导致他找不到3 
+    </script>
+</body>
+</html>

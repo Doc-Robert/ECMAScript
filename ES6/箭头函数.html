@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let fn = () => {
+            console.log('=>函数');
+        }
+        fn();
+
+        // this 是静态的 this 始终指向函数声明时所在作用域下的 this 的值
+        function getName(){
+            console.log(this.name);
+        }
+
+        let getName2 = () =>{
+            console.log(this.name);
+        }
+        //设置window 对象name 属性
+        window.name = "Reines";
+        const teacher = {
+            name:'waybo'
+        };
+
+        // call() 方法调用
+        getName.call(teacher)//waybo
+        getName2.call(teacher);//Reines
+
+        // 2.不能作为构造实例化对象
+        let Person = (name,age) => {
+            this.name = name;
+            this.age = age
+        }
+        
+        // 3.不能使用 arguments 变量
+        let args = () =>{
+            console.log(arguments);
+        }
+
+        args(1,2,3)
+
+        // 4.箭头函数简写
+            // 1)省略小括号 ，当形参只有一个的时候
+            // 2)省略花括号。当代码体只有一句时 此时return必须省略
+            let test = n => n + n;
+    </script>
+</body>
+</html>

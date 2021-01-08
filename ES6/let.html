@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>let</title>
+</head>
+<body>
+    <script>
+        let a;
+        let b,c,d;
+        let e = 100;
+        let f = 222, g = "222",h = [];
+
+        //let 新特性
+
+        // 1. 变量不能重复声明
+        //  let star ="Reines"
+        //  let star ="Reines"
+        
+        // 2. 块级作用域 全局 函数 eval
+        //let 只在块级作用域中有效 
+        // {
+        //     let magic = "waybo"
+        // }
+        // console.log(magic)
+
+        // 3. 不存在变量提升
+        //let 不允许 在声明他前 使用
+        // console.log(song)
+        // let song ='elmello' 
+        
+        //4.不影响作用域链
+        //
+        {
+            let hanhan = 'Reines'
+            function fn(){
+                console.log(hanhan)
+            }
+            fn();
+        }
+    </script>
+</body>
+</html>

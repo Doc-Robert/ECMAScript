@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //es6允许按照一定模式从数组和对象中提取值，对变量进行赋值
+        // 其中被称为解构赋值
+        //数组的解构
+        const caster = ['gray','Reines','waybo'];
+        let [g,r,w] = caster
+    
+        console.log(g);
+        console.log(r);
+        console.log(w);
+
+
+        //对象的解构
+        const elMello ={
+            name:'Reines',
+            age:'unknown',
+            lord: function(){
+                console.log("waybo");
+            }
+        };
+
+        let {name, age, lord} = elMello;
+        console.log(name);
+        console.log(age);
+        console.log(lord);
+
+    
+        lord();
+    </script>
+</body>
+</html>
