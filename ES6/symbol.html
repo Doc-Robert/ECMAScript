@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let e = Symbol('Reines');//可以传入一个值，作为描述字符串(注释)
+        let e2 = Symbol('BYQ'); 
+        console.log(e === e2); //false 其值不相同
+        console.log(e,typeof e);//Symbol('Reines') "symbol"
+        // Symbol 是唯一的 
+        // 如果希望重新使用同一个symbol值
+
+        // 可以使用 symbol.for
+        let a1 = Symbol.for('Reines');
+        let a2 = Symbol.for('Reines');
+        console.log(a1 === a2);//true 
+
+        //不能与其他数据进行运算，对比
+        // let result = s + 100
+        // let result = s + s
+    </script>
+</body>
+</html>

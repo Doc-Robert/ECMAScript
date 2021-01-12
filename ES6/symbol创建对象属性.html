@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //扩展原对象的 属性和方法
+        // 向对象添加方法 up down
+        let game = {
+            name: "onmyoji",
+            // up: function(){
+            //     console.log('game.up()');
+            // },
+            // down: function(){
+            //     console.log('game.down()');
+            // }
+        }
+        // 声明一个对象
+        let methods = {
+            up: Symbol(),
+            down:Symbol()
+        }
+        // 使用对象[symbol数据] 来添加 方法，属性
+        game[methods.up] = function(){
+            console.log("method.up()");
+        }
+        game[methods.down] = function(){
+            console.log("method.down()");
+        }
+        // console.log(game);
+        
+        //声明 对象时定义symbol类型的数据
+        let exam = {
+            name: 'Eleina',
+            //因为symbol 是表达式 所以需要加上[]
+            [Symbol('say')]: function(){
+                console.log('call my name');
+            },
+            //方法简写
+            [Symbol('level')]: () => {
+                console.log('魔女');
+            },
+            [Symbol('ps')]: 'cute'
+        }
+        console.log(exam);
+    </script>
+</body>
+</html>
