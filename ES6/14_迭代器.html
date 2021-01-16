@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 声明一个数组
+        const titan = ["allen","Reiner","Armin",'mikasa'];
+        // for... of 遍历数组输出  保存的是键值
+        //for ... in 循环保存的是键名
+        // for(let v in titan){ //0,1,2,3
+        for(let v of titan){
+            console.log(v);//输出数组元素
+        }
+        //1.创建一个对象获取symbol的迭代器
+        let iterator = titan[Symbol.iterator]();
+
+        //2.调用对象的next（）方法
+        console.log(iterator.next());//{value: " ", done: false}
+        console.log(iterator.next());//指向下一个值
+        console.log(iterator.next());
+        console.log(iterator.next());
+        //3.不断调用对象的 next() 方法，指针一直向后移动，直到最后一个成员
+        console.log(iterator.next());//{value: undefined, done: true}
+    </script>
+</body>
+</html>

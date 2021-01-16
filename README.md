@@ -721,5 +721,113 @@ console.log(arr.concat(arr2));
   - String
   - TypedArray
   - NodeList
+
+```js
+// 声明一个数组
+const titan = ["allen","Reiner","Armin",'mikasa'];
+// for... of 遍历数组输出  保存的是键值
+//for ... in 循环保存的是键名
+// for(let v in titan){ //0,1,2,3
+for(let v of titan){
+    console.log(v);//输出数组元素
+}
+```
+
 - 工作原理
 
+  - 创建一个指针对象，指向当前数据结构的起始位置
+  - 第一次调用对象的next方法，指针会指向数据结构的第一个成员
+  - 接下来不断调用next 方法，指针一直往后移动，直到指向最后一个成员
+  - 每次调用next方法返回一个包含value 和done属性的对象
+
+  vlaue ：数据
+
+  done：遍历是否完成的状态，直到最后一个成员返回done的状态会变成true ，未完成则是false
+
+```js
+//1.创建一个对象获取symbol的迭代器
+let iterator = titan[Symbol.iterator]();
+
+//2.调用对象的next（）方法
+console.log(iterator.next());//{value: " ", done: false}
+console.log(iterator.next());//指向下一个值
+console.log(iterator.next());
+console.log(iterator.next());
+//3.不断调用对象的 next() 方法，指针一直向后移动，直到最后一个成员
+console.log(iterator.next());//{value: undefined, done: true}
+```
+
+
+
+
+
+#### 自定义迭代器
+
+`迭代器练习`：
+
+```js
+ // 声明一个对象
+const knight = {
+    name:'Round Table',
+    status:[
+        'Lancelot',
+        'Gawain',
+        'Mordred',
+        'Tristan'
+    ],
+    [Symbol.iterator](){
+        // 索引变量
+        let index = 0;
+        // let _this = this;
+        return {
+            next:() =>{
+                if(index < this.status.length){
+                    const result = {value: this.status[index], done: false};
+                    // 下标自增
+                    index++;
+                    // 返回结果集
+                    return result;
+                }else{
+                    return{value: undefined, done: true}
+                }
+            }
+        };
+    }
+}
+for(let v of knight){
+    console.log(v);
+    //
+}
+```
+
+> 以自定义的方式 用迭代器遍历对象数组
+>
+> 
+>
+> - 注意此处的this 指的是  next: function() {  
+> - 所以需要使用箭头函数或者是 // let    _this = this;
+>
+> ```js
+> [Symbol.iterator](){
+>     // 索引变量
+>     let index = 0;
+>     // let _this = this;
+>     return {
+>         next:() =>{
+>             if(index < this.status.length){
+>                 const result = {value: this.status[index], done: false};
+>                 // 下标自增
+>                 index++;
+>                 // 返回结果集
+>                 return result;
+>             }else{
+>                 return{value: undefined, done: true}
+>             }
+>         }
+>     };
+> }
+> ```
+
+**输出结果：**
+
+![image-20210115213034583](README.assets/image-20210115213034583.png)
