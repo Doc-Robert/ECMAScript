@@ -761,7 +761,7 @@ console.log(iterator.next());//{value: undefined, done: true}
 
 
 
-#### 自定义迭代器
+### 自定义迭代器
 
 `迭代器练习`：
 
@@ -831,3 +831,81 @@ for(let v of knight){
 **输出结果：**
 
 ![image-20210115213034583](README.assets/image-20210115213034583.png)
+
+
+
+
+
+## 2.12 生成器
+
+> 生成器函数是 ES6 提供的一种**异步编程**解决方案，语法行为与传统函数完全不同
+
+ 
+
+### 生成器函数的声明 ，调用
+
+~~~js
+// 生成器是一个特殊的函数
+// 异步编程  纯回调函数 node fs ajax mongodb
+// 生成器函数中间有一个星号 *
+function * gen(){
+    // console.log('generator');
+}
+let iterator = gen();
+// iterator.next();
+//生成器函数不能直接调用 必须使用next（）方法调用
+
+// 2、函数代码的分隔符 yield
+// 以yield 作为函数分割符 ，每执行一次next（）执行一次对应函数体获得yield 的字面量
+function * gen2(){
+    // console.log('generator');
+
+    yield '修雷因';
+
+    yield '卡迪雅';
+
+    yield '菲';
+}
+let iterator2 = gen2();
+console.log(iterator2.next());
+console.log(iterator2.next());
+console.log(iterator2.next());
+console.log(iterator2.next());
+
+//因为是个迭代器对象 通过for ... of 遍历
+for(let v of gen2()){
+    // 遍历的每一次结果 是yield 分割符后面的一个表达式、字面量结果
+    console.log(v); // 修雷因，卡迪雅，菲
+}
+~~~
+
+
+
+### 生成器的函数参数传递
+
+~~~js
+// 声明一个生成器函数
+function * gen(arg){
+    console.log(arg);
+
+    let one = yield '魔女';
+    console.log(one);
+
+    let two = yield '伊蕾娜';
+    console.log(two);
+
+}
+
+// 执行获取迭代器对象
+let iterator = gen('aaa');
+console.log(iterator.next());//传入的实参aaa和 value:魔女
+
+// next 方法可以传入实参
+console.log(iterator.next('旅行者'));//传入的实参 旅行者 和 value:伊蕾娜
+
+console.log(iterator.next('灰之魔女'));//传入的实参 灰之魔女 和 value:undefined
+
+~~~
+
+
+

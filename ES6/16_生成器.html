@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 生成器是一个特殊的函数
+        // 异步编程  纯回调函数 node fs ajax mongodb
+        // 生成器函数中间有一个星号 *
+        function * gen(){
+            // console.log('generator');
+        }
+        let iterator = gen();
+        // iterator.next();
+        //生成器函数不能直接调用 必须使用next（）方法调用
+
+        // 2、函数代码的分隔符 yield
+        // 以yield 作为函数分割符 ，每执行一次next（）执行一次对应函数体
+        function * gen2(){
+            // console.log('generator');
+            
+            yield '修雷因';
+
+            yield '卡迪雅';
+
+            yield '菲';
+        }
+        let iterator2 = gen2();
+        console.log(iterator2.next());
+        console.log(iterator2.next());
+        console.log(iterator2.next());
+        console.log(iterator2.next());
+
+        //因为是个迭代器对象 通过for ... of 遍历
+        for(let v of gen2()){
+            // 遍历的每一次结果 是yield 分割符后面的一个表达式、字面量结果
+            console.log(v);// 修雷因，卡迪雅，菲
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 声明一个生成器函数
+        function * gen(arg){
+            console.log(arg);
+
+            let one = yield '魔女';
+            console.log(one);
+
+            let two = yield '伊蕾娜';
+            console.log(two);
+
+        }
+
+        // 执行获取迭代器对象
+        let iterator = gen('aaa');
+        console.log(iterator.next());//传入的实参aaa和 value:魔女
+        
+        // next 方法可以传入实参
+        console.log(iterator.next('旅行者'));//传入的实参 旅行者 和 value:伊蕾娜
+
+        console.log(iterator.next('灰之魔女'));//传入的实参 灰之魔女 和 value:undefined
+
+
+    </script>
+</body>
+</html>
