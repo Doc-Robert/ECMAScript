@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 实例化 Promise 对象
+    const p = new Promise(function(resolve, reject){
+        setTimeout(function(){
+        // 
+            let data = 'data in database';
+            resolve(data)
+
+            let err = 'data read fail'
+            reject(err);
+        },1000)
+    })
+
+    // 调用 promise 对象的then方法
+    p.then(function(value){
+        console.log(value)
+    }), function(reason){
+        console.error(reason)
+    }
+
+    </script>
+</body>
+</html>

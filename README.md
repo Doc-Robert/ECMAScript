@@ -909,3 +909,22 @@ console.log(iterator.next('灰之魔女'));//传入的实参 灰之魔女 和 va
 
 
 
+### 生成器函数实例
+
+
+
+
+
+
+
+
+
+
+
+## 2.13 Promise
+
+Promise 是ES6引入的异步编程的新解决方案。语法上Promise是一个构造函数，用来封装异步操作并可以获取其成功或失败的结果
+
+- Promise 构造函数 ：Promise（excutor）{}
+- Promise.prototype.then 方法 
+- Promise.prototype.catch 方法
